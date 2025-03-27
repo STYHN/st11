@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鲨条登月计划·月面歌会争霸赛</title>
+    <style>
+        :root {
+            --cosmic-black: #0A0C1A;
+            --nebula-purple: #5E2BFF;
+            --star-dust: #C8C9E5;
+            --moon-rock: #DEDEDE;
+            --supernova: #FFD700;
+        }
+
+        /* 杂志版式系统 */
+        .grid-system {
+            display: grid;
+            grid-template-columns: [full-start] 1fr [main-start] minmax(300px, 1200px) [main-end] 1fr [full-end];
+            row-gap: 4rem;
+        }
+
+        /* 英雄模块 */
+        .hero-section {
+            grid-column: full;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(15deg, 
+                var(--cosmic-black) 40%, 
+                rgba(94,43,255,0.4) 100%);
+        }
+
+        .hero-background {
+            position: absolute;
+            width: 100%;
+            height: 120%;
+            background: url('https://example.com/moon-surface.jpg') center/cover;
+            filter: saturate(1.2) contrast(0.9);
+            mask: linear-gradient(to bottom, 
+                rgba(0,0,0,1) 60%, 
+                rgba(0,0,0,0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 8% 15%;
+            color: var(--star-dust);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 30px var(--nebula-purple);
+            background: linear-gradient(45deg, #FFF, var(--supernova));
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            max-width: 600px;
+            line-height: 1.6;
+            border-left: 4px solid var(--supernova);
+            padding-left: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* 杂志标题样式 */
+        .section-heading {
+            font-size: 2.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 8px;
+            height: 80%;
+            background: var(--nebula-purple);
+            transform: translateY(-50%);
+        }
+
+        /* 参赛者卡片 */
+        .contestant-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .contestant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(94,43,255,0.3);
+        }
+
+        /* 动态时间线 */
+        .timeline-bar {
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--nebula-purple), 
+                var(--supernova));
+            position: relative;
+            margin: 40px 0;
+        }
+        .timeline-marker {
+            width: 15px;
+            height: 15px;
+            background: var(--supernova);
+            border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,215,0,0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(255,215,0,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+        }
+
+        /* CTA按钮样式 */
+        .cta-button {
+            background: var(--nebula-purple);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(94,43,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <main class="grid-system">
+        <!-- 英雄模块 -->
+        <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    🚀 鲨条登月计划<br>
+                    <span style="font-size: 0.8em;">月面歌会竞演盛典</span>
+                </h1>
+                <p class="hero-subtitle">
+                    全球首个月球表面歌唱赛事，集合最顶尖的声学科技与艺术创作，
+                    在低重力环境下重新定义人类音乐的边界
+                </p>
+                <button class="cta-button">🌕 即刻报名月球观众 →</button>
+            </div>
+        </section>
+
+        <!-- 赛事信息模块 -->
+        <section class="main-grid">
+            <h2 class="section-heading">✨ 赛事里程碑</h2>
+            <div class="timeline-bar">
+                <div class="timeline-marker" style="left: 20%"></div>
+                <div class="timeline-marker" style="left: 50%"></div>
+                <div class="timeline-marker" style="left: 80%"></div>
+            </div>
+
+            <div class="contestant-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
+                <article class="contestant-card">
+                    <img src="https://example.com/singer-1.jpg" alt="选手太空服写真" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                    <h3>🛸 声波先驱者</h3>
+                    <p>真空环境声学优化技术</p>
+                    <div class="voting-progress" style="height: 4px; background: rgba(255,255,255,0.2); margin-top: 1rem;">
+                        <div class="progress-bar" style="width: 65%; height: 100%; background: var(--supernova); transition: width 0.5s ease;"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 视差滚动效果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero-background').style.transform = 
+                `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // 动态粒子背景
+        function createStarfield() {
+            const container = document.querySelector('.hero-section');
+            for(let i=0; i<200; i++){
+                const star = document.createElement('div');
+                star.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random()*3}px;
+                    height: ${Math.random()*3}px;
+                    background: rgba(255,255,255,${Math.random()*0.8});
+                    top: ${Math.random()*100}%;
+                    left: ${Math.random()*100}%;
+                    animation: twinkle ${2 + Math.random()*3}s infinite;
+                `;
+                container.appendChild(star);
+            }
+        }
+        createStarfield();
+    </script>
+</body>
+</html>
